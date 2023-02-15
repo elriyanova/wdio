@@ -1,4 +1,5 @@
 import Page from './page.js';
+import { waitAndSetValue } from '../../utils/element-commands.js';
 
 /**
  * sub page containing specific selectors and methods for a specific page
@@ -28,8 +29,11 @@ class LoginPage extends Page {
      * e.g. to login using username and password
      */
     async login (username, password) {
-        await this.inputUsername.setValue(username);
-        await this.inputPassword.setValue(password);
+        const inputUsername = await this.inputUsername
+        const inputPassword = await this.inputPassword
+        await waitAndSetValue(inputUsername, 0, username)
+        await waitAndSetValue(inputPassword, 0, password)
+    
         await this.btnSubmit.click();
     }
 
