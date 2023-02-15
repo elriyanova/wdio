@@ -10,6 +10,7 @@
     "wdio-chromedriver-service": "^8.0.1"
   },
   "scripts": {
+    "test": "wdio",
     "wdio": "wdio run ./wdio.conf.js"
   }
 }

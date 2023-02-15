@@ -1,7 +1,7 @@
 import LoginPage from '../pageobjects/login.page.js'
 import SecurePage from '../pageobjects/secure.page.js'
 
-describe('My Login application', () => {
+describe('Login page test', () => {
     it('should login with valid credentials', async () => {
         await LoginPage.open()
 
