@@ -13,7 +13,7 @@ class AddRemoveElementsPage extends Page {
         return $$('//button[text()="Delete"]'); //xpath
     }
 
-    open () {
+    open(){
         return super.open('add_remove_elements/');
     }
 
