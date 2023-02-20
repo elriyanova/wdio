@@ -8,9 +8,7 @@ describe('Add/Remove Elements page test', () => {
         await expect(AddRemoveElementsPage.pageTitle).toBeDisplayed();
 
         await AddRemoveElementsPage.addButton.click(); // added first button
-
         await AddRemoveElementsPage.addButton.click(); // added second button
-
         await AddRemoveElementsPage.addButton.click(); // added third button
 
         assert.equal(await AddRemoveElementsPage.isElementsListDisplayed(), true);

@@ -1,4 +1,4 @@
-export async function waitAndClick (timeout) {
+export async function waitAndClick (element, timeout = 10000) {
   await element.waitForClickable({ timeout });
   await element.click();
 }
