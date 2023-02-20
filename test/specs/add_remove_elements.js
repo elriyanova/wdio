@@ -7,13 +7,18 @@ describe('Add/Remove Elements page test', () => {
 
         await expect(AddRemoveElementsPage.pageTitle).toBeDisplayed();
 
-        await AddRemoveElementsPage.addButton.click();
+        await AddRemoveElementsPage.addButton.click(); // added first button
 
-        assert.equal(await AddRemoveElementsPage.addedElementIsDisplayed(), true);
+        await AddRemoveElementsPage.addButton.click(); // added second button
 
-        await AddRemoveElementsPage.deleteButton.click();
+        await AddRemoveElementsPage.addButton.click(); // added third button
 
-        assert.equal(await AddRemoveElementsPage.addedElementIsDisplayed(), false);
+        assert.equal(await AddRemoveElementsPage.isElementsListDisplayed(), true);
+    })
+    it('should delete added elements', async () => {
+        await AddRemoveElementsPage.clickAllElements();
+
+        assert.equal(await AddRemoveElementsPage.isElementsListDisplayed(), false);
         
     })
 })

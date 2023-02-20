@@ -9,17 +9,34 @@ class AddRemoveElementsPage extends Page {
         return $('//button[text()="Add Element"]'); //xpath
     }
 
-    get deleteButton () {
-        return $('//button[text()="Delete"]'); //xpath
-    }
-
-    async addedElementIsDisplayed(){
-        return await this.deleteButton.isDisplayed();
+    get deleteButtons () {
+        return $$('//button[text()="Delete"]'); //xpath
     }
 
     open () {
         return super.open('add_remove_elements/');
     }
+
+    async isElementsListDisplayed() {
+        const elements = await this.deleteButtons
+        for (const element of elements) {
+          if (!element) {
+            return false
+          }
+          const isDisplayed = await element.isDisplayed()
+          if (!isDisplayed) {
+            return false
+          }
+        }
+        return true
+      }
+
+      async clickAllElements() {
+        const elements = await this.deleteButtons
+        await elements.forEach(async (element) => {
+          await element.click()
+      })
+      }
 }
 
 export default new AddRemoveElementsPage();
