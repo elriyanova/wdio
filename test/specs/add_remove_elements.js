@@ -2,9 +2,11 @@ import AddRemoveElementsPage from '../pageobjects/add_remove_elements.page.js';
 import assert from 'node:assert';
 
 describe('Add/Remove Elements page test', () => {
-    it('should open the url and verify the title', async () => {
-        await AddRemoveElementsPage.open();
-
+    before(() => {
+        AddRemoveElementsPage.open();
+    })
+    
+    it('should verify the title', async () => {
         await expect(AddRemoveElementsPage.pageTitle).toBeDisplayed();
         assert.equal(await AddRemoveElementsPage.pageTitle.getText(), 'Add/Remove Elements');
     })

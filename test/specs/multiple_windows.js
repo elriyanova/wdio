@@ -2,8 +2,11 @@ import MultipleWindowsPage from "../pageobjects/multiple_windows.page.js";
 import assert from 'node:assert';
 
 describe('Switch window test', () => {
-    it('should switch to the next tab and verify the url', async () => {
+    before(() => {
         MultipleWindowsPage.open();
+    })
+
+    it('should switch to the next tab and verify the url', async () => {
         MultipleWindowsPage.clickHereBtn();
         MultipleWindowsPage.switchToWindow();
 

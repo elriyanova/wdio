@@ -2,9 +2,11 @@ import DynamicControlsPage from "../pageobjects/dynamic_controls.page.js";
 import assert from 'node:assert';
 
 describe('Dynamic controls page test', () => {
-    it('should open the url and verify the title', async () => {
-        await DynamicControlsPage.open();
+    before(() => {
+        DynamicControlsPage.open();
+    })
 
+    it('should verify the title', async () => {
         await expect(DynamicControlsPage.pageTitle).toBeDisplayed();
         assert.equal(await DynamicControlsPage.pageTitle.getText(), 'Dynamic Controls');
     })
