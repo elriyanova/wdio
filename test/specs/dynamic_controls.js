@@ -12,6 +12,7 @@ describe('Dynamic controls page test', () => {
     it('should click on checkbox and verfiy that checkbox is activated', async () => {
         await DynamicControlsPage.checkbox.click();
 
+        await expect(DynamicControlsPage.checkbox).toBeSelected();
         assert.equal(await DynamicControlsPage.checkbox.isSelected(), true);
     })
     
