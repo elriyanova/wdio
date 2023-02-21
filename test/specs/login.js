@@ -3,7 +3,7 @@ import SecurePage from '../pageobjects/secure.page.js'
 import BasicUser from '../../constants/user/basicUser.js'
 
 describe('Login page test', () => {
-    it('should login with valid credentials', async () => {
+    it('should login with valid credentials and verify message', async () => {
         const user = new BasicUser();
 
         await LoginPage.open();
@@ -11,11 +11,17 @@ describe('Login page test', () => {
 
         await expect(SecurePage.flashAlert).toBeExisting();
         await expect(SecurePage.flashAlert).toHaveTextContaining('You logged into a secure area!');
+    })
+
+    it('should verify url', async () => {
         await expect(browser).toHaveUrlContaining('/secure');
+    })
+
+    it('should verify title', async () => {
         await expect(browser).toHaveTitle('The Internet');
     })
 
-    it('should logout', async () => {
+    it('should logout and verify message', async () => {
         await SecurePage.logout();
 
         await expect(LoginPage.flashAlert).toHaveTextContaining(
